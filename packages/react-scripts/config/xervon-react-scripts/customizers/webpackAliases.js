@@ -12,7 +12,7 @@ module.exports = aliases =>
 
     if (name && target) {
       return Object.assign({}, acc, {
-        [name]: resolve(__dirname, target),
+        [name]: resolve(pwd, target),
       });
     }
   }, {});
