@@ -262,5 +262,7 @@ const baseConfig = {
 };
 
 module.exports = update(baseConfig, {
-  $merge: xervonCustomConfig,
+  resolve: {
+    alias: { $merge: xervonCustomConfig.resolve.alias },
+  },
 });
