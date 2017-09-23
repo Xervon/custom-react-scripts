@@ -9,6 +9,6 @@ module.exports = aliases =>
       target = alias[1];
 
     return Object.assign({}, acc, {
-      [name]: resolve(target),
+      [name]: resolve(__dirname, target),
     });
   }, {});
