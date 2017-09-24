@@ -44,6 +44,7 @@
     "eslint-plugin-react": "7.1.0",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
+    "flow-bin": "0.55.0",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "immutability-helper": "^2.4.0",
@@ -70,8 +71,15 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "empty": "0.10.1",
+    "history": "4.7.2",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "react-router-redux": "5.0.0-alpha.6",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0"
   },
   "optionalDependencies": {
     "fsevents": "1.1.2"

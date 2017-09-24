@@ -1,0 +1,32 @@
+[ignore]
+.*\/node_modules\/most\/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+esproposal.decorators=ignore
+
+module.name_mapper.extension='css' -> 'empty/object'
+module.name_mapper.extension='scss' -> 'empty/object'
+
+module.name_mapper='^@Actions$' -> '<PROJECT_ROOT>/src/actions/actions.js'
+module.name_mapper='^@Actions\(.*\)$' -> '<PROJECT_ROOT>/src/actions\1'
+
+module.name_mapper='^@Assets\(.*\)$' -> '<PROJECT_ROOT>/src/assets\1'
+
+module.name_mapper='^@Components\(.*\)/\([^/]+\)/$' -> '<PROJECT_ROOT>/src/components\1/\2/\2'
+module.name_mapper='^@Components\(.*\)$' -> '<PROJECT_ROOT>/src/components\1'
+
+module.name_mapper='^@Containers\(.*\)/\([^/]+\)\/$' -> '<PROJECT_ROOT>/src/containers\1/\2/\2'
+module.name_mapper='^@Containers\(.*\)$' -> '<PROJECT_ROOT>/src/containers\1'
+
+module.name_mapper='^@Reducers$' -> '<PROJECT_ROOT>/src/reducers/reducers.js'
+module.name_mapper='^@Reducers\(.*\)$' -> '<PROJECT_ROOT>/src/reducers\1'
+
+module.name_mapper='^@Styles\(.*\)$' -> '<PROJECT_ROOT>/src/scss\1'
+
+module.name_mapper='^@@\(.*\)$' -> '<PROJECT_ROOT>/src\1'
