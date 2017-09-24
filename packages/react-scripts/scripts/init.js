@@ -31,6 +31,7 @@ module.exports = function(
   const ownPackageName = require(path.join(__dirname, '..', 'package.json'))
     .name;
   const ownPath = path.join(appPath, 'node_modules', ownPackageName);
+  const ownPackage = require(path.join(ownPath, 'package.json'));
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
@@ -102,7 +103,13 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
+
+  const ownDevDeps = ownPackage.devDependencies;
+  const dependencies = Object.keys(ownDevDeps).reduce((acc, cur) => {
+    return acc.concat([`${cur}@${ownDevDeps[cur]}`]);
+  }, []);
+
+  args = args.concat(dependencies);
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
