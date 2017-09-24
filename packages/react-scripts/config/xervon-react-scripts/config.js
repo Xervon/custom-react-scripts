@@ -6,7 +6,7 @@ module.exports = (isDev = true) => ({
       const availKeys = Object.keys(process.env).filter(
         e => e.indexOf('REACT_APP_RESOLVE_ALIAS_') > -1
       );
-      require('./customizers/webpackResolveAliases.js')(
+      return require('./customizers/webpackResolveAliases.js')(
         availKeys.map(e => process.env[e]),
         availKeys
       );
@@ -15,7 +15,7 @@ module.exports = (isDev = true) => ({
       const availKeys = Object.keys(process.env).filter(
         e => e.indexOf('REACT_APP_RESOLVE_PLUGINS_') > -1
       );
-      require('./customizers/webpackResolveAliases.js')(
+      return require('./customizers/webpackResolvePlugins.js')(
         availKeys.map(e => process.env[e]),
         availKeys
       );
