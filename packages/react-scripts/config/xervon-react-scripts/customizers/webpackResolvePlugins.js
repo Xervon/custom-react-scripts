@@ -8,7 +8,7 @@ const plugins = {
 
 module.exports = (values, keys) =>
   keys.reduce((acc, val, idx) => {
-    if (values[idx] === true) {
+    if (values[idx] === 'true') {
       return acc.concat([plugins[val]()]);
     }
-  }, []);
+  }, []) || [];
