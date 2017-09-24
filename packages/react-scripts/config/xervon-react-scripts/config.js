@@ -2,10 +2,23 @@
 
 module.exports = (isDev = true) => ({
   resolve: {
-    alias: require('./customizers/webpackAliases.js')(
-      Object.keys(process.env)
-        .filter(e => e.indexOf('REACT_APP_ALIAS_') > -1)
-        .map(e => process.env[e])
-    ),
+    alias: (() => {
+      const availKeys = Object.keys(process.env).filter(
+        e => e.indexOf('REACT_APP_RESOLVE_ALIAS_') > -1
+      );
+      require('./customizers/webpackResolveAliases.js')(
+        availKeys.map(e => process.env[e]),
+        availKeys
+      );
+    })(),
+    plugins: (() => {
+      const availKeys = Object.keys(process.env).filter(
+        e => e.indexOf('REACT_APP_RESOLVE_PLUGINS_') > -1
+      );
+      require('./customizers/webpackResolveAliases.js')(
+        availKeys.map(e => process.env[e]),
+        availKeys
+      );
+    })(),
   },
 });

@@ -264,5 +264,6 @@ const baseConfig = {
 module.exports = update(baseConfig, {
   resolve: {
     alias: { $merge: xervonCustomConfig.resolve.alias },
+    plugins: { $merge: xervonCustomConfig.resolve.plugins },
   },
 });
